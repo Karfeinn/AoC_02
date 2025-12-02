@@ -5,14 +5,10 @@ def open_ids():
 
 def is_id_valid(number):
     text_number = str(number)
-    if len(text_number)%2 !=0 :
-        return True
-
-    first_part = text_number[:int(len(text_number)/2)]
-    last_part = text_number[int(len(text_number)/2):]
-    if first_part == last_part :
-        return False
-    
+    for i in range(1, int((len(text_number)/2))+1):
+        test = text_number.split(text_number[:i])
+        if ''.join(test) == '' :
+            return False
     return True
 
 def all_id_in_interval(interval):
